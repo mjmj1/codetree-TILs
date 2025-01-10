@@ -37,9 +37,9 @@ int main()
         arr[y][x] = i;
     }
 
-    for (int y = 0; y < n * m; y++)
+    for (int y = 0; y < n; y++)
     {
-        for (int x = 0; x < n * m; x++)
+        for (int x = 0; x < m; x++)
         {
             if(arr[y][x] != 0)
                 printf("%d ", arr[y][x]);
@@ -47,6 +47,6 @@ int main()
 
         printf("\n");
     }
-
+    
     return 0;
 }
