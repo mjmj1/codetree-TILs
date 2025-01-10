@@ -17,9 +17,9 @@ int* get_direction(char dir)
     switch (dir)
     {
     case 'U':
-        return new int[2] { 1, 0 };
-    case 'D':
         return new int[2] { -1, 0 };
+    case 'D':
+        return new int[2] { 1, 0 };
     case 'R':
         return new int[2] { 0, 1 };
     case 'L':
