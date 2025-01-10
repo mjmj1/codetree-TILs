@@ -8,7 +8,7 @@ char d;
 
 bool in_range(int x, int y)
 {
-    if ((x < n and x > 0) and (y < n and y > 0)) return true;
+    if ((x <= n and x > 0) and (y <= n and y > 0)) return true;
     return false;
 }
 
@@ -36,7 +36,7 @@ int main()
 
     int x = c, y = r;
 
-    for (int i = t; i > 0; i--)
+    for (int i = 0; i < t; i++)
     {
         int nx = x + dir[1], ny = y + dir[0];
 
