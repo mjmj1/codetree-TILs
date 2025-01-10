@@ -39,7 +39,7 @@ int main()
 
     for (int y = 0; y < n * m; y++)
     {
-        for (int x = 0; x < n * n; x++)
+        for (int x = 0; x < n * m; x++)
         {
             if(arr[y][x] != 0)
                 printf("%d ", arr[y][x]);
