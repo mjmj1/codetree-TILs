@@ -24,7 +24,7 @@ int main() {
     };
 
     cin >> commands;
-    
+
     int rot = 0;
     int time = 0;
 
@@ -36,7 +36,7 @@ int main() {
         }
         else if(commands[i] == 'L')
         {
-            rot = (abs(rot - 1)) % 4;
+            rot = (rot - 1 + 4) % 4;
         }
         else
         {
