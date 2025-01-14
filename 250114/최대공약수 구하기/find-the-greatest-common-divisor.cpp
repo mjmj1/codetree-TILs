@@ -6,7 +6,7 @@ int n, m;
 
 int get_gcd(int n, int m)
 {
-    for(int i = max(n, m); i > 0; i--)
+    for(int i = min(n, m); i > 0; i--)
     {
         if(n % i == 0 && m % i == 0)
         {
