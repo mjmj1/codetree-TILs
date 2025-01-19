@@ -23,7 +23,7 @@ int main()
 {
     cin >> n >> m;
 
-    char cnt = 1;
+    char cnt = 0;
     int nx = 0, ny = 0;
     int dx = 0, dy = 0;
     int rot = 0;
@@ -41,7 +41,9 @@ int main()
 
         nx += dir[rot][1], ny += dir[rot][0];
 
-        arr[ny][nx] = 65 + ((cnt++) % 26);
+        cnt = (cnt + 1) % 26;
+
+        arr[ny][nx] = 65 + cnt;
     }
 
     for (int i = 0; i < n; i++)
