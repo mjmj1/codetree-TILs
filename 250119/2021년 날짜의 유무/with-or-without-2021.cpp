@@ -23,14 +23,13 @@ int calender[12] =
 int main() {
     cin >> M >> D;
 
-    if(calender[M - 1] >= D)
+    if(calender[M - 1] > D)
     {
         printf("Yes");
+        return 0;
     }
-    else
-    {
-        printf("No");
-    }
+    
+    printf("No");
 
     return 0;
 }
