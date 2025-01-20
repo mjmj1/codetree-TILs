@@ -30,6 +30,8 @@ int find_str()
             if(find_pattern(i))
             {
                 res = i;
+
+                return res;
             }
         }
     }
