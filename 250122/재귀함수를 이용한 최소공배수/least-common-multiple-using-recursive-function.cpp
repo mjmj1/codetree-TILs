@@ -6,22 +6,20 @@ using namespace std;
 int n;
 int arr[10];
 
-int fun(int n_)
+int get_lcd(int m)
 {
-    if(n_ == -1) return 1;
-
-    int n1 = arr[n_];
-
-    for(int i = sqrt(arr[n_]); i > 1; i--)
+    if(m % 2 == 0)
     {
-        if(arr[n_] % i == 0)
-        {
-            n1 = arr[n_] / i;
-            break;
-        }
+        return 2 * get_lcd(m / 2);
     }
-
-    return n1 * fun(n_ - 1);
+    else if(m % 3 == 0)
+    {
+        return 3 * get_lcd(m / 3);
+    }
+    else
+    {
+        return m;
+    }
 }
 
 int main() {
@@ -30,7 +28,14 @@ int main() {
         cin >> arr[i];
     }
 
-    printf("%d", fun(n - 1));
+    int res = 1;
+
+    for(int i = 0; i < n; i++)
+    {
+        res *= get_lcd(arr[i]);
+    }
+
+    printf("%d", res / 6);
 
     return 0;
 }
