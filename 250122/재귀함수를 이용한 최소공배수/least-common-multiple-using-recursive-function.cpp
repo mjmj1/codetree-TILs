@@ -1,25 +1,18 @@
 #include <iostream>
-#include <math.h>
 
 using namespace std;
 
 int n;
 int arr[10];
 
-int get_lcd(int m)
+int gcd(int a, int b)
 {
-    if(m % 2 == 0)
-    {
-        return 2 * get_lcd(m / 2);
-    }
-    else if(m % 3 == 0)
-    {
-        return 3 * get_lcd(m / 3);
-    }
-    else
-    {
-        return m;
-    }
+    return b == 0 ? a : gcd(b, a % b);
+}
+
+int lcm(int a, int b)
+{
+    return (a * b) / gcd(a, b);
 }
 
 int main() {
@@ -27,15 +20,14 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
+    
+    int result = arr[0];
 
-    int res = 1;
-
-    for(int i = 0; i < n; i++)
-    {
-        res *= get_lcd(arr[i]);
+    for (int i = 1; i < n; i++) {
+        result = lcm(result, arr[i]);
     }
 
-    printf("%d", res / 6);
+    printf("%d", result);
 
     return 0;
 }
