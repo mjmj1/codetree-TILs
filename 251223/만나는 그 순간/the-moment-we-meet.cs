@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Text;
+using System.Collections.Generic;
 
 public class Codetree
 {
@@ -14,12 +15,11 @@ public class Codetree
         int n = int.Parse(firstLine[0]);
         int m = int.Parse(firstLine[1]);
 
-        int[] posA = new int[1000];
-        int[] posB = new int[1000];
+        var posA = new List<int>();
+        var posB = new List<int>();
         int meet = -1;
 
-        int cur = 500;
-        int offset = 0;
+        int cur = 0;
 
         // A의 이동 정보 입력
         for (int i = 0; i < n; i++)
@@ -32,17 +32,14 @@ public class Codetree
             if (dir == "L") sign = -1;
             else if (dir == "R") sign = 1;
 
-            for(var j = offset; j < offset + time; j++)
+            for(var j = 0; j < time; j++)
             {
                 cur += sign;
-                posA[j] = cur;
+                posA.Add(cur);
             }
-
-            offset = offset + time;
         }
 
-        cur = 500;
-        offset = 0;
+        cur = 0;
 
         // B의 이동 정보 입력
         for (int i = 0; i < m; i++)
@@ -55,16 +52,14 @@ public class Codetree
             if (dir == "L") sign = -1;
             else if (dir == "R") sign = 1;
 
-            for(var j = offset; j < offset + time; j++)
+            for(var j = 0; j < time; j++)
             {
                 cur += sign;
-                posB[j] = cur;
+                posB.Add(cur);
             }
-
-            offset = offset + time;
         }
 
-        for(var i = 0; i < posA.Length; i++)
+        for(var i = 0; i < posA.Count; i++)
         {
             if(posA[i] == 0) break;
 
