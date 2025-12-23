@@ -10,7 +10,6 @@ public class Codetree
         StreamWriter sw = new StreamWriter(new BufferedStream(Console.OpenStandardOutput()));
         StringBuilder sb = new StringBuilder();
 
-        int prev = 1001;
         int cnt = 0;
         int max = 0;
 
@@ -24,7 +23,7 @@ public class Codetree
         {
             var x = int.Parse(xx[i]);
 
-            if(x > prev && x > t)
+            if(x > t)
             {
                 cnt++;
             }
@@ -37,8 +36,6 @@ public class Codetree
             {
                 max = cnt;
             }
-
-            prev = x;
         }
 
         sb.Append($"{max}"); 
