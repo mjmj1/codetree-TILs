@@ -61,9 +61,7 @@ public class Codetree
 
         for(var i = 0; i < posA.Count; i++)
         {
-            if(posA[i] == 0) break;
-
-             if(posA[i] == posB[i])
+            if(posA[i] == posB[i])
             {
                 meet = i + 1;
 
