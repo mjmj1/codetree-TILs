@@ -11,7 +11,7 @@ public class Codetree
         StringBuilder sb = new StringBuilder();
 
         int prev = 1001;
-        int cnt = 1;
+        int cnt = 0;
         int max = 0;
 
         var line = sr.ReadLine().Split(' ');
