@@ -20,19 +20,17 @@ public class Codetree
         
         var xx = sr.ReadLine().Split(' ');
 
-        foreach (var a in xx)
+        for (var i = 0; i < n; i++)
         {
-            var x = int.Parse(a);
+            var x = int.Parse(xx[i]);
 
-            if(x < t) continue;
-
-            if(x > prev)
+            if(x > prev && x > t)
             {
                 cnt++;
             }
             else
             {
-                cnt = 1;
+                cnt = 0;
             }
 
             if(cnt > max)
