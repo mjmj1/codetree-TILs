@@ -15,8 +15,8 @@ public class Codetree
         var n = int.Parse(line[0]);
         var m = int.Parse(line[1]);
 
-        var posA = new List<int>();
-        var posB = new List<int>();
+        var posA = new List<float>();
+        var posB = new List<float>();
 
         var cur = 0;
 
@@ -25,17 +25,13 @@ public class Codetree
             var vt = sr.ReadLine().Split(' ');
             var v = int.Parse(vt[0]);
             var t = int.Parse(vt[1]);
-
-            var c = v / t;
             
             for (int j = 0; j < t; j++)
             {
-                cur = cur + c;
+                cur = cur + v;
 
                 posA.Add(cur);
             }
-
-            cur = Convert.ToInt32(cur + t);
         }
 
         cur = 0;
@@ -46,21 +42,20 @@ public class Codetree
             var v = int.Parse(vt[0]);
             var t = int.Parse(vt[1]);
 
-            var c = v / t;
-            
             for (int j = 0; j < t; j++)
             {
-                cur = cur + c;
+                cur = cur + v;
                 
                 posB.Add(cur);
             }
-
-            cur = Convert.ToInt32(cur + t);
         }
 
-        var first = posA[0] > posB[0] ? 'A' : 'B';
+        var first = ' ';
+        
+        if(posA[0] > posB[0]) first = 'A';
+        else if(posA[0] < posB[0]) first = 'B';
 
-        var cnt = 1;
+        var cnt = 0;
 
         for(var i = 1; i < posA.Count; i++)
         {
@@ -68,15 +63,15 @@ public class Codetree
             {
                 if(first == 'A') continue;
 
+                if(first != ' ') cnt++;
                 first = 'A';
-                cnt++;
             }
             else if(posA[i] < posB[i])
             {
                 if(first == 'B') continue;
 
+                if(first != ' ') cnt++;
                 first = 'B';
-                cnt++;
             }
         }
 
