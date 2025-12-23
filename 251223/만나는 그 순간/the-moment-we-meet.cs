@@ -18,7 +18,7 @@ public class Codetree
         int[] posB = new int[1000];
         int meet = -1;
 
-        int cur = 0;
+        int cur = 500;
         int offset = 0;
 
         // A의 이동 정보 입력
@@ -41,7 +41,7 @@ public class Codetree
             offset = offset + time;
         }
 
-        cur = 0;
+        cur = 500;
         offset = 0;
 
         // B의 이동 정보 입력
@@ -66,7 +66,9 @@ public class Codetree
 
         for(var i = 0; i < posA.Length; i++)
         {
-            if(posA[i] == posB[i])
+            if(posA[i] == 0) break;
+
+             if(posA[i] == posB[i])
             {
                 meet = i + 1;
 
