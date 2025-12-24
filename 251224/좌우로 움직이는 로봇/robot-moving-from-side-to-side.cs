@@ -51,10 +51,24 @@ public class Codetree
             }
         }
 
+        if(posA.Count != posB.Count)
+        {
+            if(posA.Count > posB.Count)
+            {
+                var ex = posB.LastOrDefault();
+                posB.Add(ex);
+            }
+            else if(posA.Count < posB.Count)
+            {
+                var ex = posA.LastOrDefault();
+                posA.Add(ex);
+            }
+        }
+
         int max = Math.Max(posA.Count, posB.Count);
         int cnt = 0;
 
-        for(var i = 0; i < max; i++)
+        for(var i = 1; i < max; i++)
         {
             var a = Math.Min(i, posA.Count - 1);
             var b = Math.Min(i, posB.Count - 1);
