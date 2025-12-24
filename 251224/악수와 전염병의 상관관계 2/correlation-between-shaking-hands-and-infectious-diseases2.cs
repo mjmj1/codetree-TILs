@@ -48,8 +48,7 @@ public class Codetree
 
             var x = value.Item1;
             var y = value.Item2;
-
-            // sw.WriteLine($"{x}:{infected[x]},{infectedCnt[x]} | {y}:{infected[y]},{infectedCnt[y]}");
+            var now = false;
 
             if (infected[x] > 0)
             {
@@ -61,15 +60,19 @@ public class Codetree
                     {
                         infected[y] = 1;
                         infectedCnt[y] = k;
+                        now = true;
                     }
                 }
             }
         
+            if (now) continue;
+
             if (infected[y] > 0)
             {
                 if(infectedCnt[y] > 0)
                 {
                     infectedCnt[y]--;
+
 
                     if(infected[x] != 1)
                     {
@@ -78,6 +81,8 @@ public class Codetree
                     }
                 }
             }
+
+            // sw.WriteLine($"{x}:{infected[x]},{infectedCnt[x]} | {y}:{infected[y]},{infectedCnt[y]}");
         }
         
         for (int i = 0; i < infected.Length; i++)
