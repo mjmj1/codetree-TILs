@@ -33,12 +33,12 @@ public class Codetree
             {
                 for(var k = 0; k < r; k++)
                 {
+                    if(idx > n * n) break;
+
                     curX += dx[dir];
                     curY += dy[dir];
 
                     grid[curY, curX] = idx++;
-
-                    if(idx > n * n) break;
                 }
 
                 dir = (dir + 1) % 4;
@@ -51,7 +51,7 @@ public class Codetree
         {
             for(var j = 0; j < n; j++)
             {
-                sb.Append($"{grid[i, j]}");
+                sb.Append($"{grid[i, j]} ");
             }
 
             sb.Append("\n");
