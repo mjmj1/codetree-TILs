@@ -33,6 +33,12 @@ public class Codetree
         var cur = 0;
         var start = arr[curR, curC];
 
+        if(start == arr[r - 1, c - 1])
+        {
+            sb.Append("0");
+            return;
+        }
+
         for(var k = 1; k < r - 1; k++)
         {
             cur = 0;
