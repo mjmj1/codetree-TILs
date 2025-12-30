@@ -15,7 +15,19 @@ public class Codetree
         var n = sr.ReadLine();
         var chars = n.ToCharArray();
         
-        for(var i = 0; i < n.Length; i++)
+        if(n.Length == 1)
+        {
+            if(n[0] == '0')
+            {
+                chars[0] = '1';
+            }
+            else
+            {
+                chars[0] = '0';
+            }
+        }
+
+        for(var i = 1; i < n.Length; i++)
         {
             if(n[i] == '0')
             {
