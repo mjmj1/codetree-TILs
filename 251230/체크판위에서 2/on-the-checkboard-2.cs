@@ -35,7 +35,7 @@ public class Codetree
 
         if(start == arr[r - 1, c - 1])
         {
-            sb.Append("0");
+            Console.WriteLine("0");
             return;
         }
 
