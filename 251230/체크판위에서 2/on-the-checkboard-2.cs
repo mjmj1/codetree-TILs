@@ -27,39 +27,35 @@ public class Codetree
             }
         }
 
-        var result = 1;
+        var result = 0;
         var curR = 0;
         var curC = 0;
-        var cur = 0;
         var start = arr[curR, curC];
 
         if(start == arr[r - 1, c - 1])
         {
-            Console.WriteLine("0");
+            sb.Append($"{result}");
+            sw.Write(sb);
+
+            sr.Close();
+            sw.Close();
             return;
         }
 
-        for(var k = 1; k < r - 1; k++)
+        for(var i = curR + 1; i < r - 2; i++)
         {
-            cur = 0;
-
-            for(var i = curR + 1; i < r - 1; i++)
+            for(var j = curC + 1; j < c - 2; j++)
             {
-                for(var j = curC + 1; j < c - 1; j++)
-                {
-                    if(start != arr[i, j])
-                    {
-                        curR = i;
-                        curC = j;
-                        cur++;
-                    }
-                }
+                if(start == arr[i, j]) continue;
 
-                if(cur > 0)
+                for(var k = i + 1; k < r - 1; k++)
                 {
-                    start = arr[curR, curC];
-                    result *= cur;
-                    break;
+                    for(var l = j + 1; l < c - 1; l++)
+                    {
+                        if(arr[k, l] == arr[i, j]) continue;
+
+                        result++;
+                    }
                 }
             }
         }
